@@ -1,0 +1,43 @@
+import React, { useState } from 'react';
+import style from './App.module.css'
+
+const Classroom = () => {
+  const [question, setQuestion] = useState('');
+  const [solution, setSolution] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const generateQA = () => {
+    setLoading(true);
+
+    // Simulate API delay (optional)
+    setTimeout(() => {
+      const dummyQuestion = 'What is the capital of France?';
+      const dummySolution = 'The capital of France is Paris.';
+
+      setQuestion(dummyQuestion);
+      setSolution(dummySolution);
+      setLoading(false);
+    }, 1000); // simulate 1 second delay
+  };
+
+  return (
+    <>
+
+      <button onClick={generateQA} disabled={loading}>
+        {loading ? 'Generating...' : 'Generate Question & Solution'}
+      </button>
+
+      {question && (
+        <div style={{ marginTop: '20px',fontSize:"30px",textAlign:"center",height:"" }}>
+          <h3>Question:</h3>
+          <p>{question}</p>
+          <h3>Solution:</h3>
+          <p>{solution}</p>
+        </div>
+      )}
+      <input className={style.questionInput} type='Text' placeholder='Enter your question'/>
+    </>
+  );
+};
+
+export default Classroom;
