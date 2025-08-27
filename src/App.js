@@ -31,7 +31,7 @@ function App() {
   const data = async () => {
     try {
       const lastUserMessage = message[message.length - 1].user;
-      const url = "https://6c7344b8-8b84-4d2e-a90f-f6b4807b6355-00-1deuo2nb7uq8m.sisko.replit.dev/"; // your backend
+      const url = "https://educationai-u5bl.onrender.com"
 
       const response = await fetch(url, {
         method: "POST",
